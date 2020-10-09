@@ -1,0 +1,76 @@
+<div class="app-home-container">
+	<div class="row app-filter-data">
+		<h1 class="heading">EnergyCortex Challenge</h1>
+		<form class="app-filter-form" [formGroup]="filterForm" (ngSubmit)="onSubmit()" novalidate>
+			<div class="row row-data">
+
+				<!-- Dropdown for industry-->
+				<mat-form-field class="app-mat-select" appearance="fill">
+					<mat-label>Select the sector</mat-label>
+					<mat-select [formControl]="filterForm.get('sector')">
+						<mat-option *ngFor="let sector of sectors" [value]="sector">
+							{{ sector }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+
+				<!-- Dropdown for weenend-->
+				<mat-form-field class="app-mat-select" appearance="fill">
+					<mat-label>Have production on the weekend?</mat-label>
+					<mat-select [formControl]="filterForm.get('weekend_prod')">
+						<mat-option *ngFor="let weekend_prod of weekendProds" [value]="weekend_prod">
+							{{ weekend_prod }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+
+				<!-- Dropdown for day-->
+				<mat-form-field class="app-mat-select" appearance="fill">
+					<mat-label>Select the day type</mat-label>
+					<mat-select [formControl]="filterForm.get('day')">
+						<mat-option *ngFor="let day of days" [value]="day">
+							{{ day }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+
+			<!-- Button group for day-->
+			<div class="row row-data app-btn-group">
+				<button class="app-btn app-btn-submit" mat-raised-button color="primary" type="button"
+					(click)="onSubmit()" [disabled]="!(filterForm.touched && filterForm.valid)">
+					Execute
+				</button>
+				<button class="app-btn" mat-raised-button type="button" [disabled]="!filterForm.dirty"
+					(click)="onClear()">
+					Clear
+				</button>
+			</div>
+		</form>
+	</div>
+	<div class="app-chart" *ngIf="seasonData">
+		<mat-tab-group>
+
+			<!-- Summer Werktag chart-->
+			<mat-tab label="Summer Chart">
+				<ng-template matTabContent>
+					<app-chart [chartId]="chartIds[0]" [chartData]="seasonData.summer && seasonData.summer"></app-chart>
+				</ng-template>
+			</mat-tab>
+
+			<!-- Winter Werktag chart-->
+			<mat-tab label="Winter Chart">
+				<ng-template matTabContent>
+					<app-chart [chartId]="chartIds[1]" [chartData]="seasonData.winter && seasonData.winter"></app-chart>
+				</ng-template>
+			</mat-tab>
+
+			<!-- Rest Season Werktag chart-->
+			<mat-tab label="Rest Season Chart">
+				<ng-template matTabContent>
+					<app-chart [chartId]="chartIds[2]" [chartData]="seasonData.rest && seasonData.rest"></app-chart>
+				</ng-template>
+			</mat-tab>
+		</mat-tab-group>
+	</div>
+</div>

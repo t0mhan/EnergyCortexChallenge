@@ -1,0 +1,33 @@
+.app-home-container {
+	.app-filter-data{
+		text-align: center;
+		.heading {
+			text-align: center;
+			margin-top: 20px;
+		}
+		.app-filter-form {
+			.row-data {
+				.mat-form-field  {
+					width: 270px;
+					margin: 12px;
+				}
+				.app-btn {
+					margin-bottom: 10px;					
+					width: 125px;
+				}
+				.app-btn-submit {
+					margin-right: 15px;
+				}				
+			}
+		}				
+	}
+	.app-chart-text {
+		text-align: center;
+
+	}
+
+	.app-chart {
+		margin: 15px 20px 0 20px;
+		
+	}
+}
