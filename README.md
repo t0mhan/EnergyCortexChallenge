@@ -1,6 +1,6 @@
 # EnergyCortexChallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
+EnergyCortex challenge was to call an API and utilize the JSON response to plot a time-series graph for each season of the year using amCharts and Angular. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
 ## Install dependencies
 
